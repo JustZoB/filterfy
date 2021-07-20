@@ -1,0 +1,21 @@
+image: node:14-alpine
+
+variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+    DOCKER_DRIVER: overlay2
+
+stages:
+    - pages
+
+pages:
+    stage: pages
+    script:
+        - yarn install --ignore-optional --silent --ignore-engines --non-interactive
+        - yarn run build
+
+    artifacts:
+        paths:
+            - public
+
+    only:
+        - master
