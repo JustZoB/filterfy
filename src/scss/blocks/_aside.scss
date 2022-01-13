@@ -1,0 +1,174 @@
+.aside {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 8%;
+  min-width: 100px;
+  height: 100vh;
+  background: $opacity-light-blue;
+  z-index: 100;
+  padding: 3% 0 0 0;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    cursor: pointer;
+
+    & > *:first-child {
+      margin-bottom: 10px;
+      width: 50%;
+    }
+
+    & > *:last-child {
+      width: 75%;
+    }
+  }
+
+  .nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    .line {
+      align-self: flex-start;
+      width: 50%;
+      border-right: 1px solid $light-blue;
+      height: 100%;
+      height: -webkit-fill-available;
+    }
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      min-height: -webkit-fit-content;
+      min-height: fit-content;
+      padding: 10px 5px;
+      cursor: pointer;
+
+      &:hover,
+      &.active {
+        p {
+          font-weight: bold;
+        }
+      }
+
+      img {
+        width: 33%;
+        margin-bottom: 10px;
+        margin-bottom: clamp(10px, 1vh, 20px);
+      }
+
+      p {
+        color: $light-blue;
+        font-size: 14px;
+        font-size: clamp(14px, 0.8vw, 30px);
+      }
+    }
+  }
+
+  @media (max-width: map-get($grid-breakpoints, 'lg')) {
+    width: 100%;
+    height: 100px;
+    padding: 0 0 0 20px;
+
+    &__content {
+      display: flex;
+      flex-direction: unset;
+      height: auto;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      & > *:first-child {
+        width: 50px;
+      }
+
+      & > *:last-child {
+        width: auto;
+      }
+    }
+
+    .nav {
+      flex-direction: unset;
+
+      .line {
+        border-right: 0;
+        height: 50%;
+        border-bottom: 1px solid $light-blue;
+        width: 100%;
+        width: -webkit-fill-available;
+      }
+
+      &__item {
+        width: unset;
+        min-width: 100px;
+        padding: 5px;
+        margin: 0 5px;
+
+        img {
+          width: 40%;
+        }
+      }
+    }
+  }
+
+  @media (max-width: map-get($grid-breakpoints, 'sm')),
+  (max-device-height: 500px) and (orientation: landscape) {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    height: 80px;
+    padding: 0 0 0 10px;
+
+    &__content {
+      width: 100%;
+      align-items: center;
+    }
+
+    .logo {
+      padding: 0;
+
+      & > *:first-child {
+        width: 40px;
+      }
+
+      & > *:last-child {
+        width: 55px;
+      }
+    }
+
+    .nav {
+      justify-content: space-around;
+
+      &__item {
+        min-width: 65px;
+        padding: 0;
+        margin: 0;
+
+        p {
+          font-size: 10px;
+        }
+      }
+
+      .line {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,192 @@
+@import 'variables';
+@import 'reset.css';
+@import 'vendor';
+@import 'blocks';
+
+* {
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: -moz-none;
+}
+
+img {
+  pointer-events: none;
+}
+
+body {
+  color: $black;
+  font-family: $font-montserrat;
+  background-color: $background;
+  background-image: url(../images/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+
+  @media only screen and (hover: none) and (pointer: coarse) {
+    // Devices
+  }
+
+  main {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-transition: transform 0.56s ease-out;
+    -o-transition: transform 0.56s ease-out;
+    transition: transform 0.56s ease-out;
+    overflow: hidden;
+
+    &.drag {
+      transition: none;
+    }
+
+    section {
+      height: 100vh;
+      background-position: right center;
+      background-repeat: no-repeat;
+      -webkit-background-size: contain;
+      background-size: contain;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: flex;
+      -ms-align-items: center;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      margin-left: 8%;
+
+      p,
+      ul li,
+      ol li {
+        font-size: 20px;
+        font-size: clamp(20px, 1vw, 40px);
+        font-weight: 300;
+        line-height: 150%;
+
+        @media (max-width: map-get($grid-breakpoints, 'xl')) {
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: map-get($grid-breakpoints, 'lg')) {
+        margin-left: 0;
+        padding-top: 100px;
+      }
+      @media (max-width: map-get($grid-breakpoints, 'sm')) {
+        padding-top: 90px;
+      }
+    }
+  }
+
+  &.disableScroll {
+    overflow-y: hidden;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-montserrat;
+  font-weight: 700;
+  color: $dark-blue;
+}
+
+h1,
+h2 {
+  font-size: 50px;
+  font-size: clamp(50px, 2vw, 80px);
+  line-height: 130%;
+  margin-bottom: 30px;
+
+  @media (max-width: map-get($grid-breakpoints, 'xl')) {
+    font-size: 46px;
+  }
+  @media (max-width: map-get($grid-breakpoints, 'lg')) {
+    font-size: 42px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: map-get($grid-breakpoints, 'md')) {
+    font-size: 36px;
+  }
+  @media (max-width: map-get($grid-breakpoints, 'sm')),
+  (max-device-height: 500px) and (orientation: landscape) {
+    font-size: 28px;
+  }
+}
+
+h2 {
+  text-align: center;
+  margin-top: 40px;
+}
+
+h3 {
+  font-size: 18px;
+  line-height: 150%;
+  font-weight: 800;
+
+  @media (max-width: map-get($grid-breakpoints, 'lg')) {
+    font-size: 16px;
+  }
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: $light-blue;
+
+  &.button {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    padding: 15px 60px;
+    border-radius: 32px;
+    background-color: $blue;
+    box-shadow: 0px 6px 10px 4px $shadow;
+    font-size: 18px;
+    font-size: clamp(18px, 0.9vw, 40px);
+    font-family: $font-montserrat;
+    font-weight: 700;
+    line-height: 130%;
+    text-align: center;
+    color: $white !important;
+
+    &:hover {
+      box-shadow: 0px 6px 10px 4px $shadow-hover;
+    }
+
+    @media (max-width: map-get($grid-breakpoints, 'xl')) {
+      font-size: 16px;
+      padding: 13px 50px;
+    }
+
+    @media (max-width: map-get($grid-breakpoints, 'md')) {
+      font-size: 14px;
+      padding: 12px 40px;
+    }
+
+    @media (max-width: map-get($grid-breakpoints, 'sm')),
+    (max-device-height: 500px) and (orientation: landscape) {
+      padding: 10px 30px;
+      box-shadow: unset;
+    }
+  }
+
+  &:visited,
+  &:focus {
+    color: $light-blue;
+  }
+}

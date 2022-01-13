@@ -1,0 +1,31 @@
+$white: #FFFFFF;
+$gray: #F1F1F1;
+$background: #EBF1F2;
+$dark-blue:#0C2567;
+$blue: #3C63C6;
+$opacity-blue-hover: rgba(145, 154, 234, 0.1);
+$light-blue: #2248AA;
+$opacity-light-blue: rgba(34, 52, 213, 0.1);
+$opacity-white: rgba(255, 255, 255, 0.3);
+$black: #16252F;
+
+$shadow: rgba(34, 52, 212, 0.15);
+$shadow-hover: rgba(34, 52, 212, 0.35);
+
+$font-montserrat: 'Montserrat', sans-serif;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 575.98px,
+  md: 767.98px,
+  lg: 991.98px,
+  xl: 1399.98px
+);
+
+$grid-container: (
+  sm: 100%,
+  md: 570px,
+  lg: 750px,
+  xl: 990px,
+  exl: 1120px,
+);
